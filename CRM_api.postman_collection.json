@@ -1,0 +1,235 @@
+{
+	"info": {
+		"_postman_id": "65b94ec0-1079-404a-b9e7-6854f92da263",
+		"name": "CRM_api",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "48328600",
+		"_collection_link": "https://abhilashchandra26-6562555.postman.co/workspace/Abhilash-Chandra's-Workspace~58c6bfde-25b2-4166-843a-a695110b559f/collection/48328600-65b94ec0-1079-404a-b9e7-6854f92da263?action=share&source=collection_link&creator=48328600"
+	},
+	"item": [
+		{
+			"name": "New Request",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "create_user",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "",
+						"value": " Authorization: Bearer <token>",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"username\": \"dayana\",\r\n  \"password\": \"mypassword1234\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/auth/register",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"auth",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "user_login",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "",
+						"value": " Authorization: Bearer <token>",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"username\": \"john\",\r\n  \"password\": \"mypassword\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/auth/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "customer",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4YzJmMzEyNTRkOTM4YTJiYWI1ZmNkZSIsInVzZXJuYW1lIjoiam9obiIsImlhdCI6MTc1NzYwNzA3MywiZXhwIjoxNzU3NjEwNjczfQ.Hkm2KHTppnAz7uDcDVxxxMtKyLOHVJeNYpfvB4UsZlc",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/customers",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"customers"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create customer",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4YzJmMzEyNTRkOTM4YTJiYWI1ZmNkZSIsInVzZXJuYW1lIjoiam9obiIsImlhdCI6MTc1NzYwNzA3MywiZXhwIjoxNzU3NjEwNjczfQ.Hkm2KHTppnAz7uDcDVxxxMtKyLOHVJeNYpfvB4UsZlc",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"name\": \"Dhanush\",\r\n  \"contact_info\": {\r\n    \"email\": \"dhanush@example.com\",\r\n    \"phone\": \"9765432120\",\r\n    \"address\": \"mumbai\"\r\n  },\r\n  \"metadata\": {\r\n    \"notes\": \"VIP customer\"\r\n  }\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/customers",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"customers"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "add_case",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4YzJmMzEyNTRkOTM4YTJiYWI1ZmNkZSIsInVzZXJuYW1lIjoiam9obiIsImlhdCI6MTc1Nzg1OTk4NywiZXhwIjoxNzU3ODYzNTg3fQ.SgTf7Rb1lrG1oYBhDn7JgyRw402NhDppOAkdMobcyks",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"customer_id\": \"68c2ffaa97fa8db5c2ca813c\",\r\n  \"assigned_to\": \"68c2f9cab3e6e1d94330cebe\",\r\n  \"priority\": \"high\",\r\n  \"status\": \"in-progress\",\r\n  \"title\": \"Account access issue\",\r\n  \"description\": \"Customer 'Alice' is experiencing login problems and is unable to access her account. An agent needs to investigate the issue and provide a solution.\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/cases",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"cases"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get_caseList",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4YzJmMzEyNTRkOTM4YTJiYWI1ZmNkZSIsInVzZXJuYW1lIjoiam9obiIsImlhdCI6MTc1Nzg1OTk4NywiZXhwIjoxNzU3ODYzNTg3fQ.SgTf7Rb1lrG1oYBhDn7JgyRw402NhDppOAkdMobcyks",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/cases",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"cases"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
