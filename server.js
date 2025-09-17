@@ -7,13 +7,13 @@ dotenv.config();
 
 const app = express();
 
-// Connect DB
+// Connect to DB
 connectDB();
 
-// Middlewares
+// CORS configuration
 const allowedOrigins = [
-  "http://localhost:5173",
-  /\.vercel\.app$/ // regex to match any Vercel frontend URL
+  "http://localhost:5173", // local frontend
+  /\.vercel\.app$/         // any Vercel frontend
 ];
 
 app.use(cors({
@@ -26,9 +26,10 @@ app.use(cors({
   },
   credentials: true
 }));
+
 app.use(express.json());
 
-// Simple logger middleware
+// Simple logger
 app.use((req, res, next) => {
   console.log(`${new Date().toISOString()} - ${req.method} ${req.originalUrl}`);
   next();
@@ -39,7 +40,7 @@ app.use('/api/auth', require('./app/routes/auth'));
 app.use('/api/customers', require('./app/routes/customers'));
 app.use('/api/cases', require('./app/routes/cases'));
 
-// Health route
+// Health check
 app.get('/', (req, res) => res.send('CRM API is running'));
 
 // 404 handler
@@ -53,8 +54,4 @@ app.use((err, req, res, next) => {
   res.status(err.status || 500).json({ message: err.message || 'Server Error' });
 });
 
-// Start the server
-const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
-});
+module.exports = app;
